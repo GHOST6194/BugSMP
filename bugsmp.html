@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BUG SMP APPLICATION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            font-size: 4rem;
+            background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: rainbow 5s linear infinite;
+        }
+        @keyframes rainbow {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .btn {
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            padding: 20px 40px;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+        .apply-page {
+            display: none;
+            text-align: center;
+            position: relative;
+            padding-top: 100px;
+        }
+        .apply-page h2 {
+            font-size: 3rem;
+            color: white;
+        }
+        .apply-page .back-btn {
+            background-color: red;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .qa-section {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            text-align: left;
+        }
+        .qa-section div {
+            margin-bottom: 20px;
+        }
+        .qa-section p {
+            margin: 5px 0;
+        }
+
+        /* Falling cherry blossom effect */
+        .petals {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .petal {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: pink;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: fall 5s linear infinite, rotatePetal 6s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+        @keyframes rotatePetal {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>BUG SMP APPLICATION</h1>
+    <button class="btn" onclick="goToApplication()">Go to my Application</button>
+
+    <div class="apply-page" id="applyPage">
+        <h2>My Application</h2>
+        <div class="qa-section">
+            <div>
+                <p><strong>Q: Why would you take me in your SMP?</strong></p>
+                <p>A: I'm a skilled person in everything and can bring a lot of fun and creativity to the server. I know how to collaborate and contribute to making the community better!</p>
+            </div>
+            <div>
+                <p><strong>Q: What experience do you have in Minecraft SMPs?</strong></p>
+                <p>A: I've played in multiple SMPs before, ranging from survival to modded gameplay. I've built large structures, managed farms, and organized events!</p>
+            </div>
+            <div>
+                <p><strong>Q: What would you bring to Bug SMP?</strong></p>
+                <p>A: I would bring my creativity, problem-solving skills, and a positive attitude to help with community growth and exciting projects. I'm always up for new challenges!</p>
+            </div>
+            <div>
+                <p><strong>Q: Why should we trust you?</strong></p>
+                <p>A: I'm an honest person with a strong sense of responsibility and always strive to be respectful and friendly. Trust is earned, and I'll prove it through my actions.</p>
+            </div>
+        </div>
+        <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+    <!-- Cherry Blossom Falling Effect -->
+    <div class="petals">
+        <div class="petal" style="left: 10%; animation-duration: 6s;"></div>
+        <div class="petal" style="left: 25%; animation-duration: 7s;"></div>
+        <div class="petal" style="left: 40%; animation-duration: 8s;"></div>
+        <div class="petal" style="left: 60%; animation-duration: 5s;"></div>
+        <div class="petal" style="left: 80%; animation-duration: 9s;"></div>
+        <div class="petal" style="left: 50%; animation-duration: 6.5s;"></div>
+        <div class="petal" style="left: 30%; animation-duration: 7.5s;"></div>
+        <div class="petal" style="left: 70%; animation-duration: 8.5s;"></div>
+    </div>
+
+    <script>
+        function goToApplication() {
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('applyPage').style.display = 'block';
+        }
+
+        function goBack() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
